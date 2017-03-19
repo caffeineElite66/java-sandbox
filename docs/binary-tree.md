@@ -11,20 +11,27 @@ A complete binary tree is:
 1. exception the last level, all other nodes are filled.
 2. should be filled as left as possible.
 
-A balanced binary tree is: 
+## Balance tree
+### A balance binary tree is when the height of left and right subtree for every node is not more than 1.
+
+A balanced binary tree is:
 1. weight-balance tree
   * number of nodes in left vs right subtree is diff <= 1
 2. height-balance tree
   * height of nodes in left vs right subtree is diff <= 1
 
-## Balance tree
-### A balance binary tree is when the height of left and right subtree for every node is not more than 1.
-
 Height of an empty tree = -1
 
 Height of an tree with 1 node = 0
 
-![](resources/balanced-trees.svg?raw=true)
+![](resources/binary-tree.png?raw=true)
+
+#### Check for height balance tree.
+```
+boolean isHeightBalanced(BTreeNode root) {
+  return (maxLeafHeight(root) - minLeafHight(root)) <= 1;
+}
+```
 
 
  ## Store Binary Tree in Memory
