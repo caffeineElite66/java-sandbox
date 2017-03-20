@@ -26,10 +26,21 @@ Height of an tree with 1 node = 0
 
 ![](resources/binary-tree.png?raw=true)
 
+
 #### Check for height balance tree.
 ```
-boolean isHeightBalanced(BTreeNode root) {
-  return (maxLeafHeight(root) - minLeafHight(root)) <= 1;
+/**
+* Return -1 is not balanced.
+* @param root
+* @return
+*/
+private static int checkHeightBalanced(BinaryTreeNode root) {
+    if (root == null) return 0;
+    int leftHeight = checkHeightBalanced(root.left);
+    int rightHeight = checkHeightBalanced(root.right);
+    if (leftHeight == -1 || rightHeight == -1) return -1;
+    if (Math.abs(leftHeight - rightHeight) > 1) return -1;
+    return Math.max(leftHeight, rightHeight) + 1;
 }
 ```
 
