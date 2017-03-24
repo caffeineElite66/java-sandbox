@@ -1,6 +1,6 @@
 package algorithm;
 
-import datastructure.BinaryTreeNode;
+import datastructure.BTreeNode;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -8,14 +8,14 @@ import java.util.List;
 
 public class BTreePrinter {
 
-    public static <T extends Comparable<?>> void printNode(BinaryTreeNode<T> root) {
+    public static <T extends Comparable<?>> void printNode(BTreeNode<T> root) {
         int maxLevel = BTreePrinter.maxLevel(root);
 
         printBinaryTreeNodeInternal(Collections.singletonList(root), 1, maxLevel);
     }
 
-    private static <T extends Comparable<?>> void printBinaryTreeNodeInternal(List<BinaryTreeNode<T>> BinaryTreeNodes, int level, int maxLevel) {
-        if (BinaryTreeNodes.isEmpty() || BTreePrinter.isAllElementsNull(BinaryTreeNodes))
+    private static <T extends Comparable<?>> void printBinaryTreeNodeInternal(List<BTreeNode<T>> bTreeNodes, int level, int maxLevel) {
+        if (bTreeNodes.isEmpty() || BTreePrinter.isAllElementsNull(bTreeNodes))
             return;
 
         int floor = maxLevel - level;
@@ -25,15 +25,15 @@ public class BTreePrinter {
 
         BTreePrinter.printWhitespaces(firstSpaces);
 
-        List<BinaryTreeNode<T>> newBinaryTreeNodes = new ArrayList<BinaryTreeNode<T>>();
-        for (BinaryTreeNode<T> BinaryTreeNode : BinaryTreeNodes) {
-            if (BinaryTreeNode != null) {
-                System.out.print(BinaryTreeNode.data);
-                newBinaryTreeNodes.add(BinaryTreeNode.left);
-                newBinaryTreeNodes.add(BinaryTreeNode.right);
+        List<BTreeNode<T>> newBTreeNodes = new ArrayList<BTreeNode<T>>();
+        for (BTreeNode<T> BTreeNode : bTreeNodes) {
+            if (BTreeNode != null) {
+                System.out.print(BTreeNode.data);
+                newBTreeNodes.add(BTreeNode.left);
+                newBTreeNodes.add(BTreeNode.right);
             } else {
-                newBinaryTreeNodes.add(null);
-                newBinaryTreeNodes.add(null);
+                newBTreeNodes.add(null);
+                newBTreeNodes.add(null);
                 System.out.print(" ");
             }
 
@@ -42,21 +42,21 @@ public class BTreePrinter {
         System.out.println("");
 
         for (int i = 1; i <= endgeLines; i++) {
-            for (int j = 0; j < BinaryTreeNodes.size(); j++) {
+            for (int j = 0; j < bTreeNodes.size(); j++) {
                 BTreePrinter.printWhitespaces(firstSpaces - i);
-                if (BinaryTreeNodes.get(j) == null) {
+                if (bTreeNodes.get(j) == null) {
                     BTreePrinter.printWhitespaces(endgeLines + endgeLines + i + 1);
                     continue;
                 }
 
-                if (BinaryTreeNodes.get(j).left != null)
+                if (bTreeNodes.get(j).left != null)
                     System.out.print("/");
                 else
                     BTreePrinter.printWhitespaces(1);
 
                 BTreePrinter.printWhitespaces(i + i - 1);
 
-                if (BinaryTreeNodes.get(j).right != null)
+                if (bTreeNodes.get(j).right != null)
                     System.out.print("\\");
                 else
                     BTreePrinter.printWhitespaces(1);
@@ -67,7 +67,7 @@ public class BTreePrinter {
             System.out.println("");
         }
 
-        printBinaryTreeNodeInternal(newBinaryTreeNodes, level + 1, maxLevel);
+        printBinaryTreeNodeInternal(newBTreeNodes, level + 1, maxLevel);
     }
 
     private static void printWhitespaces(int count) {
@@ -75,11 +75,11 @@ public class BTreePrinter {
             System.out.print(" ");
     }
 
-    private static <T extends Comparable<?>> int maxLevel(BinaryTreeNode<T> BinaryTreeNode) {
-        if (BinaryTreeNode == null)
+    private static <T extends Comparable<?>> int maxLevel(BTreeNode<T> BTreeNode) {
+        if (BTreeNode == null)
             return 0;
 
-        return Math.max(BTreePrinter.maxLevel(BinaryTreeNode.left), BTreePrinter.maxLevel(BinaryTreeNode.right)) + 1;
+        return Math.max(BTreePrinter.maxLevel(BTreeNode.left), BTreePrinter.maxLevel(BTreeNode.right)) + 1;
     }
 
     private static <T> boolean isAllElementsNull(List<T> list) {

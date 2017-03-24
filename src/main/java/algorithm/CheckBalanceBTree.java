@@ -1,16 +1,16 @@
 package algorithm;
 
-import datastructure.BinaryTreeNode;
+import datastructure.BTreeNode;
 
 public class CheckBalanceBTree {
 
   public static void main (String[] args) {
-    BinaryTreeNode<Integer> root = new BinaryTreeNode(1);
-    BinaryTreeNode<Integer> node2 = new BinaryTreeNode(2);
-    BinaryTreeNode<Integer> node3 = new BinaryTreeNode(3);
-    BinaryTreeNode<Integer> node4 = new BinaryTreeNode(4);
-    BinaryTreeNode<Integer> node5 = new BinaryTreeNode(5);
-    BinaryTreeNode<Integer> node6 = new BinaryTreeNode(6);
+    BTreeNode<Integer> root = new BTreeNode(1);
+    BTreeNode<Integer> node2 = new BTreeNode(2);
+    BTreeNode<Integer> node3 = new BTreeNode(3);
+    BTreeNode<Integer> node4 = new BTreeNode(4);
+    BTreeNode<Integer> node5 = new BTreeNode(5);
+    BTreeNode<Integer> node6 = new BTreeNode(6);
 
     root.left = node2;
     root.right = node3;
@@ -22,7 +22,7 @@ public class CheckBalanceBTree {
     System.out.println((isBalanced(root)) ? "Balanced!" : "Not Balanced!");
   }
 
-  private static boolean isBalanced(BinaryTreeNode root) {
+  private static boolean isBalanced(BTreeNode root) {
     return (checkHeightBalanced(root) != -1);
   }
 
@@ -31,7 +31,7 @@ public class CheckBalanceBTree {
    * @param root
    * @return
    */
-  private static int checkHeightBalanced(BinaryTreeNode root) {
+  private static int checkHeightBalanced(BTreeNode root) {
     if (root == null) return 0;
     int leftHeight = checkHeightBalanced(root.left);
     int rightHeight = checkHeightBalanced(root.right);

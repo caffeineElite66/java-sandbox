@@ -34,7 +34,7 @@ Height of an tree with 1 node = 0
 * @param root
 * @return
 */
-private static int checkHeightBalanced(BinaryTreeNode root) {
+private static int checkHeightBalanced(BTreeNode root) {
     if (root == null) return 0;
     int leftHeight = checkHeightBalanced(root.left);
     int rightHeight = checkHeightBalanced(root.right);

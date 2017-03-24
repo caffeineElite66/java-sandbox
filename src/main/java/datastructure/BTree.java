@@ -1,5 +1,5 @@
 package datastructure;
 
-class BinaryTree {
+class BTree {
 
 }
