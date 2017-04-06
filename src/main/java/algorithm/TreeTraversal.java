@@ -2,6 +2,9 @@ package algorithm;
 
 import datastructure.BTreeNode;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 
 class TreeTraversal {
 
@@ -22,19 +25,26 @@ class TreeTraversal {
 
       BTreePrinter.printNode(node1);
 
+
+      System.out.println("\nIN ORDER: ");
+      inOrderTraversal(node1);
+
       System.out.println("\nPRE ORDER: ");
       preOrderTraversal(node1);
 
       System.out.println("\nPOST ORDER: ");
       postOrderTraversal(node1);
 
-      System.out.println("\nIN ORDER: ");
-      inOrderTraversal(node1);
+      System.out.println("\nBREATH FIRST ORDER: ");
+      breadthFirstTraversal(node1);
   }
 
   // left to right
   private static void inOrderTraversal(BTreeNode node) {
-
+      if (node == null) return;
+      inOrderTraversal(node.left);
+      System.out.print(node.data + ", ");
+      inOrderTraversal(node.right);
   }
 
   // up to down
@@ -47,15 +57,20 @@ class TreeTraversal {
 
   // down to up
   private static void postOrderTraversal(BTreeNode node) {
-      if (node.left == null && node.right == null) {
-          System.out.print(node.data + ", ");
-          return;
-      }
-
+      if (node == null) return;
       postOrderTraversal(node.left);
-
       postOrderTraversal(node.right);
+      System.out.print(node.data + ", ");
+  }
 
-
+    private static void breadthFirstTraversal(BTreeNode node) {
+        Queue queue = new LinkedList<BTreeNode>();
+        queue.add(node);
+        while (!queue.isEmpty()) {
+            BTreeNode currentNode = (BTreeNode) queue.remove();
+            if (currentNode.left != null) queue.add(currentNode.left);
+            if (currentNode.right != null) queue.add(currentNode.right);
+            System.out.print(currentNode.data + ", ");
+        }
   }
 }

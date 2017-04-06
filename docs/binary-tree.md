@@ -42,6 +42,49 @@ private static int checkHeightBalanced(BTreeNode root) {
 }
 ```
 
+## Traverse tree
+### Breath First
+Useful when you want to display the tree in it's hierarchy, decision tree...etc.
+You need to use a queue to keep track of each level when you move your way down.
+```java
+  private static void breadthFirstTraversal(BTreeNode node) {
+      Queue queue = new LinkedList<BTreeNode>();
+      queue.add(node);
+      while (!queue.isEmpty()) {
+          BTreeNode currentNode = (BTreeNode) queue.remove();
+          if (currentNode.left != null) queue.add(currentNode.left);
+          if (currentNode.right != null) queue.add(currentNode.right);
+          System.out.print(currentNode.data + ", ");
+      }
+  }
+```
+### Depth First - in,pre,post order traversal
+Go through the tree recursivly. 
+```java
+  // left to right
+  private static void inOrderTraversal(BTreeNode node) {
+      if (node == null) return;
+      inOrderTraversal(node.left);
+      System.out.print(node.data + ", ");
+      inOrderTraversal(node.right);
+  }
+
+  // up to down
+  private static void preOrderTraversal(BTreeNode node) {
+      if (node == null) return;
+      System.out.print(node.data + ", ");
+      preOrderTraversal(node.left);
+      preOrderTraversal(node.right);
+  }
+
+  // down to up
+  private static void postOrderTraversal(BTreeNode node) {
+    if (node == null) return;
+    postOrderTraversal(node.left);
+    postOrderTraversal(node.right);
+    System.out.print(node.data + ", ");
+  }
+```
 
  ## Store Binary Tree in Memory
  1. using a node class with pointers. (most common way)
