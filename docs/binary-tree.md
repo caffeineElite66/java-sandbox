@@ -15,10 +15,8 @@ A complete binary tree is:
 ### A balance binary tree is when the height of left and right subtree for every node is not more than 1.
 
 A balanced binary tree is:
-1. weight-balance tree
-  * number of nodes in left vs right subtree is diff <= 1
-2. height-balance tree
-  * height of nodes in left vs right subtree is diff <= 1
+1. weight-balance tree - number of nodes in left vs right subtree is diff <= 1
+2. height-balance tree - height of nodes in left vs right subtree is diff <= 1
 
 Height of an empty tree = -1
 
@@ -28,7 +26,7 @@ Height of an tree with 1 node = 0
 
 
 #### Check for height balance tree.
-```
+```java
 /**
 * Return -1 is not balanced.
 * @param root

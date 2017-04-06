@@ -8,7 +8,7 @@ Use another stack to keep track of max or min value as they push and pop.
 #### Detecting a LinkedList that has circular reference.
 
 Use two pointers, SLOW and FAST. SLOW will increment +1 while FAST increment +2. When both equal at some point, that means the list is circular. We reset SLOW to start while keeping FAST at the same spot. Increment each by +1. When they match, that's the beginning of the circular node.  
-```
+```java
 public ListNode detectCycle(ListNode a) {
   ListNode fast = a;
   ListNode slow = a;
@@ -39,7 +39,7 @@ public ListNode detectCycle(ListNode a) {
 #### Having list of int where all are in pairs except one. Find the one int that doesn't have a matching pair.
 
 When `0 ^ 0 = 0`, `0 ^ 1 = 1`, `1 ^ 1 = 0` with XOR. If you have `list = [1,1,3,4,3,5,4]`, you can do the following to find 5:
-```
+```java
 int oddManOut = 0;
 for (int a : list) {
   oddManOut ^= a;
@@ -51,7 +51,7 @@ return oddManOut;
 #### Get top 10 words where words store in map as <word, count>
 
 With JAVA 8, we can use the `stream` API
-```
+```java
 map.entrySet().stream()
         .sorted(Map.Entry.<String, Integer>comparingByValue().reversed())
         .limit(10)
@@ -69,7 +69,7 @@ For example, we have a list of `[1,4,5,2,3,7,6]`. We want to find pairs that add
 if value diff > k, move l to next element
 if value diff < k, move r to next element
 return count
-```
+```java
 int countPairsWithDiffK(int arr[], int n, int k) {
     int count = 0;
     sort(arr, arr+n);  // Sort array elements
