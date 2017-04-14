@@ -31,15 +31,22 @@ public class CheckBalanceBTree {
    * @param root
    * @return
    */
+//  private static int checkHeightBalanced(BTreeNode root) {
+//     if (root == null) return 0;
+//     int leftHeight = checkHeightBalanced(root.left);
+//     int rightHeight = checkHeightBalanced(root.right);
+//     if (leftHeight == -1 || rightHeight == -1) return -1;
+//     if (Math.abs(leftHeight - rightHeight) > 1) return -1;
+//     return Math.max(leftHeight, rightHeight) + 1;
+//  }
+
+
   private static int checkHeightBalanced(BTreeNode root) {
     if (root == null) return 0;
-    int leftHeight = checkHeightBalanced(root.left);
-    int rightHeight = checkHeightBalanced(root.right);
-    if (leftHeight == -1 || rightHeight == -1) return -1;
-    if (Math.abs(leftHeight - rightHeight) > 1) return -1;
-    return Math.max(leftHeight, rightHeight) + 1;
+    int left = checkHeightBalanced(root.left);
+    int right = checkHeightBalanced(root.right);
+    if(Math.abs(left - right) > 1) return -1;
+    return Math.max(left, right) + 1;
   }
-
-
 
 }

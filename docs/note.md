@@ -91,3 +91,79 @@ int countPairsWithDiffK(int arr[], int n, int k) {
 }
 ```
 ---
+## Sum two binary strings
+#### Given 2 binary represented in string. Sum them up and return their string representation. Keep in mind that strings can be longer than int. In this case you might want to use long instead.
+```java
+private static String sumBinaryStrings(String s1, String s2) {
+
+      ArrayList<Character> list1 = new ArrayList<>();
+      ArrayList<Character> list2 = new ArrayList<>();
+
+      for (Character c : s1.toCharArray()) list1.add(c);
+      for (Character c : s2.toCharArray()) list2.add(c);
+
+      ArrayList<Integer> result = new ArrayList<Integer>();
+      int carry = 0;
+
+      while (!list1.isEmpty() || !list2.isEmpty()) {
+        // remove last index
+        int a = (list1.isEmpty()) ? 0 : Character.getNumericValue(list1.remove(list1.size() - 1));
+        int b = (list2.isEmpty()) ? 0 : Character.getNumericValue(list2.remove(list2.size() - 1));
+
+        int answer = (a + b + carry);
+
+        if (answer == 3) {
+          answer = 1;
+          carry = 1;
+        } else if (answer == 2){
+          answer = 0;
+          carry = 1;
+        } else {
+          carry = 0;
+        }
+
+        result.add(0, answer);
+      }
+
+      if (carry == 1) result.add(0, 1);
+
+      String stringAnswer = "";
+      for (int digit : result) {
+        stringAnswer += String.valueOf(digit);
+      }
+      return stringAnswer;
+  }
+```
+---
+## Permutation of string
+#### This was harder than it looks
+```java
+  private static void perm(String prefix, char[] body) {
+
+    if (body.length == 2) {
+      System.out.println(prefix + body[0] + body[1]);
+      System.out.println(prefix + body[1] + body[0]);
+    }
+
+    for (int i = 0; i < body.length; i++) {
+      char tempHead = body[0];
+      body[0] = body[i];
+      body[i] = tempHead;
+      perm(String.valueOf(prefix+body[0]), removeHead(body));
+    }
+  }
+```
+---
+## Bitwise operation
+```
+a     = 0011 1100
+b     = 0000 1101
+-----------------
+a&b   = 0000 1100 AND both need to be 1
+a|b   = 0011 1101 OR either bits is 1
+a^b   = 0011 0001 XOR - one bit is 1, but not both
+~a    = 1100 0011 Ones complement. Filp the bits.
+a<<2  = 1111 0000 Left shift - will give you square
+a>>2  = 1111 right shift - will give you square root
+a>>>2 = 0000 1111 rigth shift with 0 filled.
+```
