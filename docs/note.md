@@ -167,3 +167,7 @@ a<<2  = 1111 0000 Left shift - will give you square
 a>>2  = 1111 right shift - will give you square root
 a>>>2 = 0000 1111 rigth shift with 0 filled.
 ```
+---
+## Printing Matrix
+#### print in spiral
+##### Use 4 for loops for each direction. Decrease row and col count each time
