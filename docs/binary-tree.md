@@ -59,7 +59,7 @@ You need to use a queue to keep track of each level when you move your way down.
   }
 ```
 ### Depth First - in,pre,post order traversal
-Go through the tree recursivly. 
+Go through the tree recursivly.
 ```java
   // left to right
   private static void inOrderTraversal(BTreeNode node) {

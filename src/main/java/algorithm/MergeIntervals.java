@@ -26,6 +26,47 @@ public class MergeIntervals {
     for (Interval i : intervals) {
       System.out.print(i);
     }
+
+    List<Interval> results = insert(new Interval(16, 17), intervals);
+
+    System.out.println("");
+    for (Interval i : results) {
+      System.out.print(i);
+    }
+  }
+
+  private static List<Interval> insert(Interval newInterval, List<Interval> intervals) {
+    List<Interval> results = new ArrayList<>();
+    results.add(newInterval);
+
+    for (Interval interval : intervals) {
+      // compare last interval in result vs current interval
+      Interval lastInterval = results.get(results.size() - 1);
+
+      if (isIntersect(lastInterval, interval)) {
+        lastInterval.start = Math.min(lastInterval.start, interval.start);
+        lastInterval.end = Math.max(lastInterval.end, interval.end);
+      } else {
+        if (lastInterval.start < interval.start) {
+          results.add(results.size(), interval);
+        } else {
+          results.add(results.size() - 1, interval);
+        }
+      }
+    }
+    return results;
+  }
+
+  private static Boolean isIntersect(Interval int1, Interval int2) {
+    if (
+      (int1.start >= int2.start && int1.start <= int2.end) ||
+      (int1.end >= int2.start && int1.end <= int2.end) ||
+      (int2.start >= int1.start && int2.start <= int1.end) ||
+      (int2.end >= int1.start && int2.end <= int1.end)
+      ) {
+      return true;
+    }
+    return false;
   }
 
   private static class Interval {
