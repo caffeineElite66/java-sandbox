@@ -26,9 +26,7 @@ public class BinarySearchTreeChecker {
 
   private static boolean isValidBST(BinaryTreeNode p, int min, int max){
     if(p==null) return true;
-
     if(p.value <= min || p.value >= max) return false;
-
     return isValidBST(p.left, min, p.value) && isValidBST(p.right, p.value, max);
 }
 

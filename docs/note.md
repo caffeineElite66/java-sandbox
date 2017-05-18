@@ -171,3 +171,14 @@ a>>>2 = 0000 1111 rigth shift with 0 filled.
 ## Printing Matrix
 #### print in spiral
 ##### Use 4 for loops for each direction. Decrease row and col count each time
+
+## Tricks with Mod operator.
+
+## JAVA Type Conversions
+```java
+Integer.valueOf("10"); // String --> Integer
+String.valueOf(10); // Integer --> String
+s.charAt(1); // String --> Character
+String.valueOf('a'); // Character --> String
+"Something".toCharArray(); // string --> char[]
+```
