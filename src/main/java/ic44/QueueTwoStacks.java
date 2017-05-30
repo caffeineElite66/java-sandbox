@@ -12,7 +12,6 @@ class QueueTwoStacks {
     System.out.println(queue.dequeue());
     System.out.println(queue.dequeue());
     IntStream.range(10, 15).forEach(i -> queue.enqueue(i));
-
     System.out.println(queue.dequeue());
     System.out.println(queue.dequeue());
     System.out.println(queue.dequeue());
