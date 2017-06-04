@@ -1,3 +1,5 @@
+package ic44;
+
 class AppleStock {
 public static void main (String[] args) {
         int[] prices1 = {2,5,7,1,3,2,10,9};

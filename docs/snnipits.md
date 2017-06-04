@@ -34,3 +34,15 @@ List<Pair> newList = list.stream()
   .sorted(compByStartTime.thenComparing(compByEndTime))
   .collect(Collectors.toList());
 ```
+---
+
+## Java 8 Try Catch
+#### Try with resources statement
+if you need to close a resource in a finally block, java 8 give you this try block to auto close the resource
+```java
+try (Statement stmt = con.createStatement()) {
+    // do some stuff
+} catch (SQLException e) {
+    // handle it
+} // no finally block needed. 
+```
