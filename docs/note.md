@@ -1,3 +1,7 @@
+## Problem Solving Approach
+Good engineer come up with a solution. Great engineer come up with many and weight pros and cons. 
+
+
 ## Maximum Stack
 #### A stack that keep track of maximum value in stack.
 
@@ -182,3 +186,8 @@ s.charAt(1); // String --> Character
 String.valueOf('a'); // Character --> String
 "Something".toCharArray(); // string --> char[]
 ```
+
+## In-place shuffle
+Write a function that does in-place shuffle of an arry. Each number must have same probability of ending up in each spot. 
+1. For each slot, we generate a number from 0 to size of current array. SizeOfArray--.
+2. 

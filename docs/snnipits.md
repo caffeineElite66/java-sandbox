@@ -17,9 +17,16 @@ long numberOfLines = Files.lines(Paths.get("file.txt"), Charset.defaultCharset()
 IntStream oddNumbers = IntStream.rangeClosed(10, 30)
                                 .filter(n -> n % 2 == 1);
 ```
----
+#### Do operations with loops
+```java
+IntStream.range(0, 10).forEach(i -> {
+    inplaceShuffle(array);
+    Arrays.stream(array).forEach(System.out::print);
+});
+```
+
 ## Java 8 Loops
----
+
 ## Java 8 sort ArrayList
 sorting with `Collectors` static class
 ```java
