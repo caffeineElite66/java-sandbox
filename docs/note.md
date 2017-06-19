@@ -190,4 +190,9 @@ String.valueOf('a'); // Character --> String
 ## In-place shuffle
 Write a function that does in-place shuffle of an arry. Each number must have same probability of ending up in each spot. 
 1. For each slot, we generate a number from 0 to size of current array. SizeOfArray--.
-2. 
+
+## The common series
+When you have to sum all integer from 0 to n. 
+`1+2+3+4+5+6+7+8+9+10` --> O(n^2/2) --> O(n^2)
+
+
